@@ -35,14 +35,7 @@ class Student
   end
 
   def self.first_student_in_grade_10
-    sql = <<-SQL
-      SELECT * FROM students
-      WHERE grade = 10
-      LIMIT 1
-    SQL
-
-    rows = DB[:conn].execute(sql, x)
-    rows.collect {|row| self.new_from_db(row)}
+    self.first_X_students_in_grade_10(1)
   end
 
   def self.find_by_name(name)
