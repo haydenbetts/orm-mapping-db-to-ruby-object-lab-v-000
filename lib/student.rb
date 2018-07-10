@@ -71,7 +71,7 @@ class Student
     SQL
 
     student_rows = DB[:conn].execute(sql).flatten
+    binding.pry
     student_rows.collect {|row| self.new_from_db(row)}
-    end
   end
 end
