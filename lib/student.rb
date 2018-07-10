@@ -4,7 +4,7 @@ class Student
   def initialize(name, grade, id = nil)
 
   def self.new_from_db(row)
-    student = self.new
+    student = self.new(row[1], row[2], row[0])
     self.id = row[0]
     self.name = row[1]
     self.grade = row[2]
