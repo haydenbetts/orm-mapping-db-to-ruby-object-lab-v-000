@@ -64,6 +64,14 @@ class Student
   end
 
   def self.students_below_12th_grade
-    # returns objects
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE grade = 9
+    SQL
+
+    count = DB[:conn].execute(sql)
+    return count
+    new_from_db
   end
 end
