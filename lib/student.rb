@@ -38,7 +38,15 @@ class Student
     self.first_X_students_in_grade_10(1)[0]
   end
 
-  def self.all_students_in_grade_X
+  def self.all_students_in_grade_X(grade)
+    sql = <<-SQL
+      SELECT * FROM students
+      WHERE grade = 10
+      LIMIT ?
+    SQL
+
+    rows = DB[:conn].execute(sql, x)
+    rows.collect {|row| self.new_from_db(row)}
   end
 
   def self.find_by_name(name)
