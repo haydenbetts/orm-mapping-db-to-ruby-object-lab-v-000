@@ -67,7 +67,7 @@ class Student
     sql = <<-SQL
       SELECT *
       FROM students
-      WHERE grade < 12
+      WHERE grade <= 11
     SQL
 
     student_rows = DB[:conn].execute(sql).flatten
