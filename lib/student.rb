@@ -59,6 +59,7 @@ class Student
       WHERE grade = 9
     SQL
 
-    DB[:conn].execute(sql)
+    count = DB[:conn].execute(sql)
+    return count
   end
 end
