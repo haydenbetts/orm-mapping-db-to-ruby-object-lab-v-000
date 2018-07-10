@@ -74,6 +74,5 @@ class Student
     student_rows.collect do |row|
       self.new_from_db(row)
     end
-    new_from_db
   end
 end
