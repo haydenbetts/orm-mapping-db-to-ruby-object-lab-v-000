@@ -62,4 +62,7 @@ class Student
     count = DB[:conn].execute(sql)
     return count
   end
+
+  def self.students_below_12th_grade
+  end
 end
