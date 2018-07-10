@@ -70,7 +70,7 @@ class Student
       WHERE grade < 12
     SQL
 
-    count = DB[:conn].execute(sql)
+    student_rows = DB[:conn].execute(sql).flatten
     return count
     new_from_db
   end
