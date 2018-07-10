@@ -24,6 +24,12 @@ class Student
   end
 
   def self.first_X_students_in_grade_10
+    sql = <<-SQL
+      SELECT * FROM students
+    SQL
+
+    rows = DB[:conn].execute(sql)
+    rows.collect {|row| self.new_from_db(row)}
   end
 
   def self.find_by_name(name)
