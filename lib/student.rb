@@ -71,7 +71,9 @@ class Student
     SQL
 
     student_rows = DB[:conn].execute(sql).flatten
-    return count
+    student_rows.collect do |row|
+      self.new_from_db(row)
+    end
     new_from_db
   end
 end
