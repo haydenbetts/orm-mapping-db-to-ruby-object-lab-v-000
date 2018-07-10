@@ -16,6 +16,7 @@ class Student
 
   def self.all
     sql = <<-SQL
+      SELECT * FROM student
     SQL
   end
 
